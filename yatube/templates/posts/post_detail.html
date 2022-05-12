@@ -41,7 +41,7 @@
           <img class="card-img my-2" src="{{ im.url }}">
         {% endthumbnail %}
         <p>
-          {{ one_post }}
+          {{ one_post.text }}
         </p>
         {% if one_post.author.username == user.username %}
         <a class="btn btn-primary" href="{% url 'posts:post_edit' one_post.pk %}">
@@ -51,33 +51,33 @@
       </article>
     </div> 
   </main>
-</div>
-{% if user.is_authenticated %}
-  <div class="card my-4">
-    <h5 class="card-header">Добавить комментарий:</h5>
-    <div class="card-body">
-      <form method="post" action="{% url 'posts:add_comment' one_post.id %}">
-        {% csrf_token %}      
-        <div class="form-group mb-2">
-          {{ form.text|addclass:"form-control" }}
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-      </form>
-    </div>
-  </div>
-{% endif %}
-{% for comment in comments %}
-  <div class="media mb-4">
-    <div class="media-body">
-      <h5 class="mt-0">
-        <a href="{% url 'posts:profile' comment.author.username %}">
-          {{ comment.author.username }}
-        </a>
-      </h5>
-        <p>
-         {{ comment.text }}
-        </p>
+  {% if request.user.is_authenticated %}
+    <div class="card my-4">
+      <h5 class="card-header">Добавить комментарий:</h5>
+      <div class="card-body">
+        <form method="post" action="{% url 'posts:add_comment' one_post.id %}">
+          {% csrf_token %}      
+          <div class="form-group mb-2">
+            {{ form.text|addclass:"form-control" }}
+          </div>
+          <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
       </div>
     </div>
-{% endfor %} 
+  {% endif %}
+  {% for comment in comments %}
+    <div class="media mb-4">
+      <div class="media-body">
+        <h5 class="mt-0">
+          <a href="{% url 'posts:profile' comment.author.username %}">
+            {{ comment.author.username }}
+          </a>
+        </h5>
+          <p>
+          {{ comment.text }}
+          </p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 {% endblock %} 

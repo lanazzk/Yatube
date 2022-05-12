@@ -10,7 +10,6 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 from posts.models import Follow, Group, Post, User
-from posts.views import COUNT_POSTS
 
 TEMP_MEDIA_ROOT = tempfile.mkdtemp(dir=settings.BASE_DIR)
 User = get_user_model()
@@ -146,7 +145,7 @@ class IndexTestCase(TestCase):
 
         self.assertEqual(r.status_code, HTTPStatus.OK)
         self.assertIn('Последние обновления', r.context.get('title'))
-        self.assertEqual(len(page_obj), COUNT_POSTS)
+        self.assertEqual(len(page_obj), settings.COUNT_POSTS)
 
     def test_last_post_in_index(self):
         """Последний пост появляется на главной странице."""
@@ -242,7 +241,7 @@ class GroupListTestCase(TestCase):
 
         page_obj = response.context.get('page_obj')
 
-        self.assertEqual(len(page_obj), COUNT_POSTS)
+        self.assertEqual(len(page_obj), settings.COUNT_POSTS)
         self.assertEqual(self.group, response.context.get('group'))
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
@@ -277,7 +276,7 @@ class ProfileTestCase(TestCase):
         response = self.guest_client.get(self.url)
         page_obj = response.context.get('page_obj')
 
-        self.assertEqual(len(page_obj), COUNT_POSTS)
+        self.assertEqual(len(page_obj), settings.COUNT_POSTS)
         self.assertEqual(post_count, response.context.get('counter_posts'))
         self.assertEqual(self.user, response.context.get('author'))
         self.assertEqual(response.status_code, HTTPStatus.OK)
@@ -437,7 +436,7 @@ class FollowTestCase(TestCase):
 
         page_obj = response.context.get('page_obj')
 
-        self.assertEqual(len(page_obj), COUNT_POSTS)
+        self.assertEqual(len(page_obj), settings.COUNT_POSTS)
         self.assertIn(post, page_obj.object_list)
 
     def test_not_follow_index(self):
