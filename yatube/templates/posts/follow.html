@@ -3,11 +3,11 @@
 {% load cache %}
 {% load thumbnail %}
 {% block title %}
-  {{ title }}
+  Последние записи ваших друзей
 {% endblock %} 
 {% block content %}
   <div class="container py-5">     
-    <h1> Вы читаете </h1>
+    <h1> Последние записи ваших друзей </h1>
     {% include 'posts/includes/switcher.html' %}
     {% for post in page_obj %}
         <ul>

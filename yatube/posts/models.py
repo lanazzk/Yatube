@@ -16,10 +16,13 @@ class Follow(models.Model):
         on_delete=models.CASCADE,
         related_name='following'
     )
-    UniqueConstraint(
-        fields=['user', 'author'],
-        name='unique_follow'
-    )
+
+    class Meta():
+        verbose_name = 'Подписки'
+        UniqueConstraint(
+            fields=['user', 'author'],
+            name='unique_follow'
+        )
 
 
 class Comment(models.Model):
@@ -87,7 +90,8 @@ class Post(models.Model):
         'Картинка',
         upload_to='posts/',
         blank=True,
-        null=True
+        null=True,
+        help_text='Добавьте картинку'
     )
 
     class Meta:

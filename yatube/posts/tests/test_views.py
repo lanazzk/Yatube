@@ -144,7 +144,6 @@ class IndexTestCase(TestCase):
         page_obj = r.context.get('page_obj')
 
         self.assertEqual(r.status_code, HTTPStatus.OK)
-        self.assertIn('Последние обновления', r.context.get('title'))
         self.assertEqual(len(page_obj), settings.COUNT_POSTS)
 
     def test_last_post_in_index(self):
