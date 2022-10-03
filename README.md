@@ -1,3 +1,45 @@
-# hw05_final
+# Yatube социальная сеть
 
 [![CI](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/yandex-praktikum/hw05_final/actions/workflows/python-app.yml)
+
+# Описание
+
+Социальная сеть для публикации личных дневников. Есть система регистрации. Можно создать свою персональную страницу. Есть возможность подписываться на интересных авторов, а так же вступать в сообщества по интересам и отправлять туда свои записи и картинки. Можно комментировать записи других пользователей. А так же есть возможность блокировки спамщиков (только у администратора). Для удобства использована пагинация. 
+
+## Установка и запуск
+
+Склонировать репозиторий
+
+    git clone git@github.com:Alfaram/api_yamdb.git
+
+Создать и активировать виртуальное окружение
+    
+    python -m venv venv
+    
+    source venv\bin\activate
+
+Создать и активировать виртуальное окружение
+    
+    python -m venv venv
+    
+    source venv\bin\activate
+
+Обновить pip
+    
+    python -m pip install --upgrade pip
+
+Установить зависимости из файла requirements.txt
+
+    pip install -r requirements.txt
+
+Выполнить миграции
+
+    python manage.py migrate
+
+Запустить сервер
+
+    python manage.py runserver
+ 
+ #### Contributors:
+
+[Светлана](https://github.com/lanazzk)
