@@ -2,15 +2,9 @@
 
 The social network for publishing personal diares, where users can post text with pictures, and also comment other users posts. You need to authorize to get access to your personal page, you can follow interested authors, and also subscribe to groups. Added function to block spammers(only for administrator).
 
-Written in Python, Django, based on SQLite3, using HTML templates.
+Written in Python, Django, based on SQLite3, using HTML templates. 
 
-# Yatube социальная сеть
-
-# Описание
-
-Социальная сеть для публикации личных дневников. Есть система регистрации. Можно создать свою персональную страницу. Есть возможность подписываться на интересных авторов, а так же вступать в сообщества по интересам и отправлять туда свои записи и картинки. Можно комментировать записи других пользователей. А так же есть возможность блокировки спамщиков (только у администратора). Для удобства использована пагинация. 
-
-# Технологии:
+# Technologies:
 
 - Python 3.8
 - Django 3.2
@@ -20,37 +14,31 @@ Written in Python, Django, based on SQLite3, using HTML templates.
 - HTML
 - CSS
 
-## Установка и запуск
+## Installing
 
-Склонировать репозиторий
+Clone a repository
 
     git clone git@github.com:Alfaram/api_yamdb.git
 
-Создать и активировать виртуальное окружение
+Create and activate virtual environment:
     
     python -m venv venv
     
     source venv\bin\activate
 
-Создать и активировать виртуальное окружение
-    
-    python -m venv venv
-    
-    source venv\bin\activate
-
-Обновить pip
+Update pip
     
     python -m pip install --upgrade pip
 
-Установить зависимости из файла requirements.txt
+Install dependencies from requirements.txt
 
     pip install -r requirements.txt
 
-Выполнить миграции
+Execute migrations
 
     python manage.py migrate
 
-Запустить сервер
+Launch server
 
     python manage.py runserver
  
