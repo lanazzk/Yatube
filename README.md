@@ -1,3 +1,9 @@
+# Yatube social network
+
+The social network for publishing personal diares, where users can post text with pictures, and also comment other users posts. You need to authorize to get access to your personal page, you can follow interested authors, and also subscribe to groups. Added function to block spammers(only for administrator).
+
+Written in Python, Django, based on SQLite3, using HTML templates.
+
 # Yatube социальная сеть
 
 # Описание
